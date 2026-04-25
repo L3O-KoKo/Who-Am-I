@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Learning LM</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1 id="appTitle">My Learning LM</h1>
+        <p id="appSubtitle">မင်းရဲ့ AI Tutor နဲ့ စာလေ့လာမှုကို ပိုစိတ်ဝင်စားဖို့ ကူညီမယ်</p>
+      </div>
+      <label class="lang-toggle" for="languageToggle">
+        <span id="langLabel">မြန်မာ</span>
+        <input id="languageToggle" type="checkbox" aria-label="Language toggle" />
+        <span class="slider"></span>
+        <span id="langLabelSecondary">English</span>
+      </label>
+    </header>
+
+    <main class="layout-grid">
+      <aside class="panel tools-panel">
+        <h2 id="quickToolsTitle">Quick Tools</h2>
+        <p id="quickToolsHint">စာရွက်စာတမ်း upload တင်ပြီးအောက်က tools တွေနဲ့ စတင်လိုက်ပါ။</p>
+        <div class="tool-grid" id="toolGrid"></div>
+      </aside>
+
+      <section class="panel content-panel">
+        <div class="upload-card" id="uploadCard">
+          <h2 id="uploadTitle">စာရွက်စာတမ်း ထည့်ရန်</h2>
+          <p id="uploadDesc">PDF / TXT ဖိုင်ကို drag & drop လုပ်ပါ၊ သို့မဟုတ် website link ထည့်ပါ။</p>
+          <div class="drop-zone" id="dropZone" tabindex="0" role="button" aria-label="Upload study materials">
+            <input id="fileInput" type="file" accept=".pdf,.txt" multiple />
+            <p id="dropText">ဖိုင်များကို ဒီနေရာမှာ ချပါ သို့မဟုတ် နှိပ်ပြီးရွေးချယ်ပါ</p>
+            <button id="pickFileBtn" type="button">ဖိုင်ရွေးမယ်</button>
+          </div>
+
+          <div class="link-row">
+            <input id="linkInput" type="url" placeholder="https://example.com/article" />
+            <button id="addLinkBtn" type="button">Link ထည့်မယ်</button>
+          </div>
+
+          <ul class="doc-status-list" id="docStatusList"></ul>
+          <div class="context-state" id="contextState">Context မရှိသေးပါ</div>
+        </div>
+
+        <div class="chat-card">
+          <h2 id="chatTitle">AI Tutor Chat</h2>
+          <div class="chat-window" id="chatWindow"></div>
+          <form id="chatForm" class="chat-input-row">
+            <input id="chatInput" type="text" placeholder="မေးချင်တာ ရိုက်ထည့်ပါ..." autocomplete="off" />
+            <button type="submit" id="sendBtn">ပို့မယ်</button>
+          </form>
+        </div>
+      </section>
+
+      <aside class="panel interactive-panel">
+        <section class="feature-card" id="flashcardSection">
+          <h3 id="flashcardTitle">မှတ်ဉာဏ်ကတ်များ</h3>
+          <p id="flashcardHint">ကတ်ကို နှိပ်ပြီးအဖြေကိုလှန်ကြည့်ပါ။</p>
+          <div class="flashcards" id="flashcards"></div>
+        </section>
+
+        <section class="feature-card" id="quizSection">
+          <h3 id="quizTitle">စာမေးပွဲစစ်မယ်</h3>
+          <div id="quizContainer"></div>
+          <button id="submitQuizBtn" type="button">အမှတ်တွက်မယ်</button>
+          <p id="quizScore">အမှတ်: -</p>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <template id="messageTemplate">
+    <div class="msg"><div class="bubble"></div></div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
